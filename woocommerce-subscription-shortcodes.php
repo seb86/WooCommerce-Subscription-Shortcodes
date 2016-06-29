@@ -19,9 +19,9 @@
  */
 if ( ! defined('ABSPATH') ) exit; // Exit if accessed directly.
 
-if ( ! class_exists( 'WCS_SHORTCODES' ) ) {
+if ( ! class_exists( 'WCSS' ) ) {
 
-	class WCS_SHORTCODES {
+	class WCSS {
 
 		/* Plugin version. */
 		const VERSION = '1.0.0';
@@ -33,20 +33,20 @@ if ( ! class_exists( 'WCS_SHORTCODES' ) ) {
 		const TEXT_DOMAIN = 'woocommerce-subscription-shortcodes';
 
 		/**
-		 * @var WCS_SHORTCODES - the single instance of the class.
+		 * @var WCSS - the single instance of the class.
 		 *
 		 * @since 1.0.0
 		 */
 		protected static $_instance = null;
 
 		/**
-		 * Main WCS_SHORTCODES Instance.
+		 * Main WCSS Instance.
 		 *
-		 * Ensures only one instance of WCS_SHORTCODES is loaded or can be loaded.
+		 * Ensures only one instance of WCSS is loaded or can be loaded.
 		 *
 		 * @static
-		 * @see WCS_SHORTCODES()
-		 * @return WCS_SHORTCODES - Main instance
+		 * @see WCSS()
+		 * @return WCSS - Main instance
 		 * @since 1.0.0
 		 */
 		public static function instance() {
@@ -156,4 +156,4 @@ if ( ! class_exists( 'WCS_SHORTCODES' ) ) {
 
 } // END if class exists
 
-return WCS_SHORTCODES::instance();
+return WCSS::instance();
