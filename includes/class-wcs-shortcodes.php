@@ -273,8 +273,9 @@ class WCSS_Shortcodes {
 		global $wpdb, $post;
 
 		$defaults = shortcode_atts( array(
-			'id'  => '',
-			'sku' => '',
+			'id'          => '',
+			'sku'         => '',
+			'just_period' => true
 		), $atts );
 
 		$atts = wp_parse_args( $atts, $defaults );
@@ -309,7 +310,11 @@ class WCSS_Shortcodes {
 			}
 		}
 
-		echo sprintf( __( 'Per %s', WCSS::TEXT_DOMAIN ), ucfirst($period) );
+		if ( $atts['just_period'] ) {
+			$period = sprintf( __( 'Per %s', WCSS::TEXT_DOMAIN ), $period );
+		}
+
+		echo ucfirst($period);
 
 		return ob_get_clean();
 	} // END get_subscription_period()
@@ -407,11 +412,18 @@ class WCSS_Shortcodes {
 
 				$lowest_scheme = WCS_ATT_Scheme_Prices::get_lowest_price_subscription_scheme_data( $product_data, $product_level_schemes );
 
+				$period = self::get_subscription_period( array( 'id' => $product_data->id, 'just_period' => false ) );
 				$length = $lowest_scheme['scheme']['subscription_length'];
+
+				if ( $length > 0 ) {
+					$length = sprintf( '%s %s', $length, $period );
+				} else {
+					$length = sprintf( __( 'Every %s', WCSS::TEXT_DOMAIN ), $period );
+				}
 			}
 		}
 
-		echo $length;
+		echo ucfirst($length);
 
 		return ob_get_clean();
 	} // END get_subscription_length()
