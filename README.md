@@ -45,42 +45,98 @@ Shortcode: `[subscription_price]`
 * after_price: NULL
 
 ##### Subscription Period
+Displays the subscription period of the subscription product.
+
 Shortcode: `[subscription_period]`
+###### Default Arguments
+* just_period: true
+
+> Example: Returns as default: `Per Month`. Changing the argument to false returns just `Month`.
 
 ##### Subscription Period Interval
+Displays the subscription period interval of the subscription product.
+
 Shortcode: `[subscription_period_interval]`
 
 ##### Subscription Length
+Displays the subscription length of the subscription product.
+
 Shortcode: `[subscription_length]`
 
+> Example: `Every Month`
+
 ##### Subscription Sign Up Fee
+Displays the subscription sign-up fee of the subscription product.
+
 Shortcode: `[subscription_sign_up_fee]`
 ###### Default Arguments
 * before_price: NULL
 * after_price: NULL
 
 ##### Subscription Trial Length
+Displays the subscription trial length of the subscription product.
+
 Shortcode: `[subscription_trial_length]`
 
-##### Subscription Trial Length
+##### Subscription Trial Period
+Displays the subscription trial period of the subscription product.
+
 Shortcode: `[subscription_trial_period]`
 
 ##### Subscription First Payment
+This displays the date and/or time of the first payment of the subscription.
+
 Shortcode: `[subscription_first_payment]`
 ###### Default Arguments
 * show_time: false
+* from_date: NULL
+* timezone: gmt
+* format: timestamp
+
+##### Subscription Initial Payment
+Displays the price of the initial payment of the subscription.
+
+Shortcode: `[subscription_first_payment]`
 
 ---
 
 ### Other Shortcodes
 
 ##### Subscription Discount
-> This shortcode only works for products using the mini-extension "[WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things)" that have a discount applied.
+Displays the subscription discount of the subscription product based on the regular price.
+
+> Please Note: This shortcode only works for products using the mini-extension "[WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things)" that have a discount applied.
 
 Shortcode: `[subscription_discount]`
 
+> Example: `65% discount`
+
 ### Other Notes
 In order to show details for sign up fee, trial length and trial period of a product using [WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) you will need to also have [WooCommerce Subscribe to All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on) installed.
+
+---
+
+### Filters
+For the moment I thought it would be best to allow the developer to add support for a product type by filtering it in. By default, only `subscription` and `subscription-variation` are supported.
+
+> Will push a PR for WooCommerce Subscribe to All the Things mini-extension to add support for all the product types it supports once more stable.
+
+Below is an example on how you can filter the supported product types yourself should you need to.
+
+```
+/**
+ * Add product support for a new product type.
+ *
+ * @param array $product_types
+ * @return array
+ */
+function add_sub_shortcode_product_support( $product_types ) {
+	$product_types[] = 'mix-and-match';
+
+	return $product_types;
+}
+add_filter( 'wcss_product_types', 'add_sub_shortcode_product_support', 10, 1 );
+```
 
 ---
 
