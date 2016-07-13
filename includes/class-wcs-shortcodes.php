@@ -157,7 +157,7 @@ class WCSS_Shortcodes {
 	public static function get_subscription_price( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'           => '',
 			'sku'          => '',
 			'period'       => false,
@@ -167,6 +167,8 @@ class WCSS_Shortcodes {
 			'before_price' => '',
 			'after_price'  => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -220,10 +222,12 @@ class WCSS_Shortcodes {
 	public static function get_subscription_discount( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'  => '',
 			'sku' => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -268,10 +272,12 @@ class WCSS_Shortcodes {
 	public static function get_subscription_period( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'  => '',
 			'sku' => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -317,10 +323,12 @@ class WCSS_Shortcodes {
 	public static function get_subscription_period_interval( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'  => '',
 			'sku' => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -366,10 +374,12 @@ class WCSS_Shortcodes {
 	public static function get_subscription_length( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'  => '',
 			'sku' => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -415,12 +425,14 @@ class WCSS_Shortcodes {
 	public static function get_subscription_sign_up_fee( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'           => '',
 			'sku'          => '',
 			'before_price' => '',
 			'after_price'  => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -473,10 +485,12 @@ class WCSS_Shortcodes {
 	public static function get_subscription_trial_length( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'  => '',
 			'sku' => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -522,10 +536,12 @@ class WCSS_Shortcodes {
 	public static function get_subscription_trial_period( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'  => '',
 			'sku' => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -576,7 +592,7 @@ class WCSS_Shortcodes {
 	public static function get_subscription_first_payment( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'        => '',
 			'sku'       => '',
 			'show_time' => false,
@@ -584,6 +600,8 @@ class WCSS_Shortcodes {
 			'timezone'  => 'gmt',
 			'format'    => 'timestamp'
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
@@ -601,9 +619,9 @@ class WCSS_Shortcodes {
 
 		ob_start();
 
-		$billing_interval = self::get_subscription_period_interval( $atts = array('id' => $product_data->id ) );
-		$billing_length   = self::get_subscription_length( $atts = array('id' => $product_data->id ) );
-		$trial_length     = self::get_subscription_trial_length( $atts = array('id' => $product_data->id ) );
+		$billing_interval = self::get_subscription_period_interval( $atts = array( 'id' => $product_data->id ) );
+		$billing_length   = self::get_subscription_length( $atts = array( 'id' => $product_data->id ) );
+		$trial_length     = self::get_subscription_trial_length( $atts = array( 'id' => $product_data->id ) );
 
 		$from_date = $atts['from_date'];
 
@@ -617,7 +635,7 @@ class WCSS_Shortcodes {
 				$first_renewal_timestamp = strtotime( WC_Subscriptions_Product::get_trial_expiration_date( $product_data->id, $from_date ) );
 			} else {
 				$from_timestamp = strtotime( $from_date );
-				$billing_period = self::get_subscription_period( $atts = array('id' => $product_data->id ) );
+				$billing_period = self::get_subscription_period( $atts = array( 'id' => $product_data->id ) );
 
 				if ( 'month' == $billing_period ) {
 					$first_renewal_timestamp = wcs_add_months( $from_timestamp, $billing_interval );
@@ -667,10 +685,12 @@ class WCSS_Shortcodes {
 	public static function get_subscription_initial( $atts ) {
 		global $wpdb, $post;
 
-		$atts = shortcode_atts( array(
+		$defaults = shortcode_atts( array(
 			'id'        => '',
 			'sku'       => '',
 		), $atts );
+
+		$atts = wp_parse_args( $atts, $defaults );
 
 		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
 			$product_data = wc_get_product( $atts['id'] );
