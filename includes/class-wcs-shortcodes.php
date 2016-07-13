@@ -22,6 +22,7 @@ class WCSS_Shortcodes {
 			'subscription_trial_length'    => 'get_subscription_trial_length',
 			'subscription_trial_period'    => 'get_subscription_trial_period',
 			'subscription_first_payment'   => 'get_subscription_first_payment',
+			'subscription_initial_payment' => 'get_subscription_initial',
 		);
 
 		foreach ( $shortcodes as $shortcode => $function ) {
@@ -656,6 +657,43 @@ class WCSS_Shortcodes {
 
 		return ob_get_clean();
 	} // END get_subscription_first_payment()
+
+	/**
+	 * Displays the price of the initial payment of the subscription.
+	 *
+	 * @param  array $atts
+	 * @return string
+	 */
+	public static function get_subscription_initial( $atts ) {
+		global $wpdb, $post;
+
+		$atts = shortcode_atts( array(
+			'id'        => '',
+			'sku'       => '',
+		), $atts );
+
+		if ( ! empty( $atts['id'] ) && $atts['id'] > 0 ) {
+			$product_data = wc_get_product( $atts['id'] );
+		} elseif ( ! empty( $atts['sku'] ) ) {
+			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
+			$product_data = get_post( $product_id );
+		} else {
+			$product_data = wc_get_product( $post->ID );
+		}
+
+		// Check that the product type is supported. Return blank if not supported.
+		if ( ! is_object( $product_data ) || ! in_array( $product_data->product_type, self::get_supported_product_types() ) ) {
+			return '';
+		}
+
+		ob_start();
+
+		$initial_payment = '';
+
+		echo $initial_payment;
+
+		return ob_get_clean();
+	} // END get_subscription_initial()
 
 } // END WCSS_Shortcodes
 
