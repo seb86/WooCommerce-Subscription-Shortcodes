@@ -131,6 +131,9 @@ class WCSS_Shortcodes {
 				'subscription_sale_price'    => $lowest_scheme['scheme']['subscription_sale_price']
 			);
 
+			// Prepare the price
+			$price = '';
+
 			if ( $override === 'inherit' && ! empty( $discount ) && $prices[ 'price' ] > 0 ) {
 				$price = empty( $discount ) ? $price : ( empty( $prices[ 'regular_price' ] ) ? $prices[ 'regular_price' ] : round( ( double ) $prices[ 'regular_price' ] * ( 100 - $discount ) / 100, wc_get_price_decimals() ) );
 			} else {
@@ -478,10 +481,10 @@ class WCSS_Shortcodes {
 
 		// Convert number into a price tag.
 		if ( is_numeric( $sign_up_fee ) ) {
-			$price_html = wc_price( $sign_up_fee );
+			$sign_up_fee = wc_price( $sign_up_fee );
 		}
 
-		$price_html = sprintf( __( '%s%s%s', WCSS::TEXT_DOMAIN ), $atts['before_price'], $price_html, $atts['after_price'] );
+		$price_html = sprintf( __( '%s%s%s', WCSS::TEXT_DOMAIN ), $atts['before_price'], $sign_up_fee, $atts['after_price'] );
 
 		echo html_entity_decode( $price_html );
 
