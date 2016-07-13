@@ -252,11 +252,11 @@ class WCSS_Shortcodes {
 		}
 
 		if ( ! empty( $discount ) && is_numeric( $discount ) ) {
-			echo sprintf( __( '%s%s %s', WCSS::TEXT_DOMAIN ), $discount, '%', __( 'discount', WCSS::TEXT_DOMAIN ) );
+			echo sprintf( __( '%s%s %s', WCSS::TEXT_DOMAIN ), $discount, '%', apply_filters( 'wcs_shortcodes_sub_discount_string', __( 'discount', WCSS::TEXT_DOMAIN ) ) );
 		}
 
 		return ob_get_clean();
-	} // END get_subscription_period()
+	} // END get_subscription_discount()
 
 	/**
 	 * Displays the subscription period of the subscription product.
@@ -302,7 +302,7 @@ class WCSS_Shortcodes {
 			}
 		}
 
-		echo ucfirst($period);
+		echo sprintf( __( 'Per %s', WCSS::TEXT_DOMAIN ), ucfirst($period) );
 
 		return ob_get_clean();
 	} // END get_subscription_period()
