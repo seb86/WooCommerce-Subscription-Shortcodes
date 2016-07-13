@@ -314,7 +314,7 @@ class WCSS_Shortcodes {
 			$period = sprintf( __( 'Per %s', WCSS::TEXT_DOMAIN ), $period );
 		}
 
-		echo ucfirst($period);
+		echo ucwords($period);
 
 		return ob_get_clean();
 	} // END get_subscription_period()
