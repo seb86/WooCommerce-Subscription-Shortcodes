@@ -191,9 +191,15 @@ class WCSS_Shortcodes {
 			'trial_length'        => isset( $atts['trial_length'] ) ? $atts['trial_length'] : true,
 		) );
 
-		if ( is_numeric( $price_html ) ) {
-			$price_html = wc_price( $price_html );
-		}
+		// Clean the subscription price wrapper.
+		$price_html = str_replace('<span class="subscription-details">', '', $price_html);
+		$price_html = str_replace('</span">', '', $price_html);
+
+		// Trim the whitespace.
+		$price_html = trim( $price_html );
+
+		// Convert to Price Tag.
+		$price_html = wc_price( $price_html );
 
 		$price_html = sprintf( __( '%s%s%s', WCSS::TEXT_DOMAIN ), $atts['before_price'], $price_html, $atts['after_price'] );
 
