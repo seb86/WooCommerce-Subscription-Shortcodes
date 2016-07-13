@@ -59,9 +59,8 @@ class WCSS_Shortcodes {
 	 * @return bool
 	 */
 	public static function force_is_subscription( $is_subscription, $product_id, $product ) {
-		if ( is_object( $product_id ) ) {
-			$product    = $product_id;
-			$product_id = $product->id;
+		if ( is_object( $product ) ) {
+			$product = $product;
 		} elseif ( is_numeric( $product_id ) ) {
 			$product = wc_get_product( $product_id );
 		}
