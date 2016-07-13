@@ -173,7 +173,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -230,7 +230,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -278,7 +278,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -327,7 +327,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -376,7 +376,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -427,7 +427,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -483,7 +483,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -532,7 +532,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
@@ -590,7 +590,7 @@ class WCSS_Shortcodes {
 			$product_id   = wc_get_product_id_by_sku( $atts['sku'] );
 			$product_data = get_post( $product_id );
 		} else {
-			$product_data = '';
+			$product_data = wc_get_product( $post->ID );
 		}
 
 		// Check that the product type is supported. Return blank if not supported.
