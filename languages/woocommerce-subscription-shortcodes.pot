@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WooCommerce Subscription Shortcodes\n"
-"POT-Creation-Date: 2016-07-13 12:00+0200\n"
+"POT-Creation-Date: 2016-07-13 18:21+0200\n"
 "PO-Revision-Date: 2016-06-29 01:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,32 +20,37 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/class-wcs-shortcodes.php:205
-#: includes/class-wcs-shortcodes.php:460
+#: includes/class-wcs-shortcodes.php:207
+#: includes/class-wcs-shortcodes.php:484
 #, php-format
 msgid "%s%s%s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:256
+#: includes/class-wcs-shortcodes.php:260
 #, php-format
 msgid "%s%s %s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:256
+#: includes/class-wcs-shortcodes.php:260
 msgid "discount"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:306
+#: includes/class-wcs-shortcodes.php:314
 #, php-format
 msgid "Per %s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:560
+#: includes/class-wcs-shortcodes.php:421
+#, php-format
+msgid "Every %s"
+msgstr ""
+
+#: includes/class-wcs-shortcodes.php:588
 #, php-format
 msgid "%s%s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:560
+#: includes/class-wcs-shortcodes.php:588
 msgid "s"
 msgstr ""
 
