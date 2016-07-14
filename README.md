@@ -147,3 +147,5 @@ This plugin is released under [GNU General Public License v3.0](http://www.gnu.o
 [Prospress](http://prospress.com/) are the developers of the [WooCommerce Subscriptions](https://woocommerce.com/products/woocommerce-subscriptions/) extension and [WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) mini-extension.
 
 This extension is developed and maintained by [me](https://sebastiendumont.com).
+
+This project was backed by [Subscription Group Limited](http://www.subscriptiongroup.co.uk).
