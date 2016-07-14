@@ -4,7 +4,7 @@
  * Plugin URI:  https://github.com/seb86/WooCommerce-Subscription-Shortcodes
  * Description: Experimental extension providing a few shortcodes that you can use to add details about the subscription product where you want them to be.
  * Version:     1.0.0 Alpha
- * Author:      Sebastien Dumont
+ * Author:      Sébastien Dumont
  * Author URI:  https://sebastiendumont.com
  *
  * Text Domain: woocommerce-subscription-shortcodes
@@ -13,7 +13,7 @@
  * Requires at least: 4.1
  * Tested up to: 4.5.3
  *
- * Copyright: � 2016 Sebastien Dumont.
+ * Copyright: © 2016 Sébastien Dumont.
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -146,7 +146,9 @@ if ( ! class_exists( 'WCSS' ) ) {
 		public function plugin_meta_links( $links, $file, $data, $status ) {
 			if ( $file == plugin_basename( __FILE__ ) ) {
 				$author1 = '<a href="' . $data[ 'AuthorURI' ] . '">' . $data[ 'Author' ] . '</a>';
-				$links[ 1 ] = sprintf( __( 'By %s' ), $author1 );
+				$author2 = '<a href="http://www.subscriptiongroup.co.uk/">Subscription Group Limited</a>';
+				$links[ 1 ] = sprintf( __( 'By %s', self::TEXT_DOMAIN ), sprintf( __( '%s and %s', self::TEXT_DOMAIN ), $author1, $author2 ) );
+
 			}
 
 			return $links;
