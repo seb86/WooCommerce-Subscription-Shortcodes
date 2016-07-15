@@ -49,9 +49,9 @@ Displays the subscription period of the subscription product.
 
 Shortcode: `[subscription_period]`
 ###### Default Arguments
-* just_period: true
+* raw: false
 
-> Example: Returns as default: `Per Month`. Changing the argument to false returns just `Month`.
+> Example: Returns as default: `Per Month`. Changing the argument to true returns just `month`.
 
 ##### Subscription Period Interval
 Displays the subscription period interval of the subscription product.
@@ -62,8 +62,10 @@ Shortcode: `[subscription_period_interval]`
 Displays the subscription length of the subscription product.
 
 Shortcode: `[subscription_length]`
+###### Default Arguments
+* raw: false
 
-> Example: `Every Month`
+> Example: Returns as default: `Every Month`. Changing the argument to true returns just `month`.
 
 ##### Subscription Sign Up Fee
 Displays the subscription sign-up fee of the subscription product.
@@ -92,6 +94,9 @@ Shortcode: `[subscription_first_payment]`
 * from_date: NULL
 * timezone: gmt
 * format: timestamp
+
+> Example: By default it returns `2016-08-15`. If __show_time__ is set to true it returns `2016-08-15 10:45:30`.
+> You can also return the first payment in a string format which is more readable. Set the __format__ argument to `string` and it returns `Mon 15th Aug 2016` or `Mon 15th Aug 2016 10:45 AM` if __show_time__ is set to true.
 
 ##### Subscription Initial Payment
 Displays the price of the initial payment of the subscription.
