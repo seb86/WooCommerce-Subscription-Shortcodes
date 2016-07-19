@@ -349,6 +349,9 @@ class WCSS_Shortcodes {
 					$price = wc_price( $price );
 				}
 
+				// Clean the price tag.
+				$price = self::clean_wc_price( $price );
+
 			}
 
 		}
@@ -640,6 +643,9 @@ class WCSS_Shortcodes {
 			if ( is_numeric( $sign_up_fee ) ) {
 				$sign_up_fee = wc_price( $sign_up_fee );
 			}
+
+			// Clean the price tag.
+			$sign_up_fee = self::clean_wc_price( $sign_up_fee );
 
 			$price_html = sprintf( __( '%s%s%s', WCSS::TEXT_DOMAIN ), $atts['before_price'], $sign_up_fee, $atts['after_price'] );
 
@@ -983,6 +989,9 @@ class WCSS_Shortcodes {
 			$initial_payment = wc_price( $initial_payment );
 		}
 
+		// Clean the price tag.
+		$initial_payment = self::clean_wc_price( $initial_payment );
+
 		echo $initial_payment;
 
 		return ob_get_clean();
@@ -1003,6 +1012,34 @@ class WCSS_Shortcodes {
 
 		return $product_types;
 	} // support_product_types_for_wc_satt()
+
+	/**
+	 * This function returns the formatted price tag clean without
+	 * WooCommerce price span wrapper which was added in version 2.6
+	 *
+	 * @param  string $price
+	 * @global $woocommerce
+	 * @return string
+	 */
+	public static function clean_wc_price( $price ) {
+		global $woocommerce;
+
+		if ( version_compare( $woocommerce->version, '2.6.0' ) >= 0 ) {
+
+			$find = array(
+				'<span class="woocommerce-Price-amount amount">', 
+				'<span class="woocommerce-Price-currencySymbol">', 
+				'</span>'
+			);
+
+			foreach( $find as $remove ) {
+				$price = str_replace( $remove, '', $price );
+			}
+
+		}
+
+		return $price;
+	} // END clean_wc_price
 
 } // END WCSS_Shortcodes
 
