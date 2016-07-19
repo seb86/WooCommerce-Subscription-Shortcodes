@@ -924,6 +924,7 @@ class WCSS_Shortcodes {
 		$defaults = shortcode_atts( array(
 			'id'        => '',
 			'sku'       => '',
+			'total'     => false
 		), $atts );
 
 		$atts = wp_parse_args( $atts, $defaults );
@@ -960,7 +961,13 @@ class WCSS_Shortcodes {
 
 		// Apply the sign up fee if it exists.
 		if ( !empty( $sign_up_fee ) && $sign_up_fee > 0 ) {
-			$initial_payment = sprintf( __( '%s with a %s sign up fee.', WCSS::TEXT_DOMAIN ), wc_price( $initial_payment ), wc_price( $sign_up_fee ) );
+
+			if ( ! $atts['total'] ) {
+				$initial_payment = sprintf( __( '%s with a %s sign up fee.', WCSS::TEXT_DOMAIN ), wc_price( $initial_payment ), wc_price( $sign_up_fee ) );
+			} else {
+				$initial_payment = round( ( double ) $initial_payment+$sign_up_fee, wc_get_price_decimals() );
+			}
+
 		}
 
 		// Convert number into a price tag.
