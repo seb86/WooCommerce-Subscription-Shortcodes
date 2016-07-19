@@ -26,7 +26,7 @@ In order to use the extension, you will need:
 
 Simply insert the shortcode you wish to use on the product page or blog post or even a standard page. If you use the shortcode outside of the product page then you will need to add the product ID attribute or the sku ID attribute.
 
-> Example: `[subscription_price id="123"]`
+> Example: `[subscription_price id="123"]` or `[subscription_price sku="123"]`
 
 #### More Information
 * [How to use shortcodes](https://codex.wordpress.org/Shortcode)
@@ -35,6 +35,8 @@ Simply insert the shortcode you wish to use on the product page or blog post or 
 ---
 
 ##### Subscription Price
+Returns the current price of the subscription along with the rest of the subscription data in a single string.
+
 Shortcode: `[subscription_price]`
 ###### Default Arguments
 * period: false
@@ -43,6 +45,17 @@ Shortcode: `[subscription_price]`
 * trial_length: false
 * before_price: NULL
 * after_price: NULL
+
+> This shortcode still requires some work.
+
+#### Subscription Price Meta
+This particular shortcode returns the price meta data. If the subscription is on sale, then the price meta returns both the sale price and regular price striked through. Otherwise it will return just the regular price as normal. However you can force it to return what you want only.
+
+> Example: If you only want to display the sale price, simply enter sale as the meta value in the shortcode.
+
+Shortcode: `[subscription_price_meta]`
+###### Default Arguments
+* meta: both
 
 ##### Subscription Period
 Displays the subscription period of the subscription product.
@@ -75,13 +88,24 @@ Shortcode: `[subscription_sign_up_fee]`
 * before_price: NULL
 * after_price: NULL
 
+##### Subscription Trial
+Displays the subscription trial details of the subscription product.
+
+> Returns blank if no trial is set. Otherwise returns `28 Days` for example.
+
+Shortcode: `[subscription_trial]`
+
 ##### Subscription Trial Length
 Displays the subscription trial length of the subscription product.
+
+> Returns blank if no trial is set.
 
 Shortcode: `[subscription_trial_length]`
 
 ##### Subscription Trial Period
 Displays the subscription trial period of the subscription product.
+
+> Returns blank if no trial is set. Otherwise returns one of the following: `Day`, `Week`, `Month` or `Year`
 
 Shortcode: `[subscription_trial_period]`
 
@@ -110,11 +134,13 @@ Shortcode: `[subscription_first_payment]`
 ##### Subscription Discount
 Displays the subscription discount of the subscription product based on the regular price.
 
+> Example: `65% discount`
+
 > Please Note: This shortcode only works for products using the mini-extension "[WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things)" that have a discount applied.
 
 Shortcode: `[subscription_discount]`
 
-> Example: `65% discount`
+This shortcode string ending can also be filtered using this filter. `wcs_shortcodes_sub_discount_string`.
 
 ### Other Notes
 In order to show details for sign up fee, trial length and trial period of a product using [WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) you will need to also have [WooCommerce Subscribe to All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on) installed.
