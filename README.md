@@ -18,9 +18,15 @@ In order to use the extension, you will need:
 * A sense of adventure as the codebase is still beta.
 
 ### Installation
+To install the Subscription Shortcodes:
 
-1. Upload the plugin's files to the `/wp-content/plugins/` directory of your WordPress site
-2. Activate the plugin through the **Plugins** menu in WordPress
+1. Download the latest version of the plugin [here](https://github.com/seb86/WooCommerce-Subscription-Shortcodes/archive/master.zip)
+2. Go to **Plugins > Add New > Upload** administration screen on your WordPress site
+3. Select the ZIP file you just downloaded
+4. Click **Install Now**
+5. Click **Activate**
+
+After installation, you can use the shortcodes listed below.
 
 ### Shortcode Usage
 
