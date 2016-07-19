@@ -960,7 +960,7 @@ class WCSS_Shortcodes {
 
 		// Apply the sign up fee if it exists.
 		if ( !empty( $sign_up_fee ) && $sign_up_fee > 0 ) {
-			$initial_payment = sprintf( __( '%s with a %s', WCSS::TEXT_DOMAIN ), wc_price( $initial_payment ), wc_price( $sign_up_fee ) );
+			$initial_payment = sprintf( __( '%s with a %s sign up fee.', WCSS::TEXT_DOMAIN ), wc_price( $initial_payment ), wc_price( $sign_up_fee ) );
 		}
 
 		// Convert number into a price tag.
