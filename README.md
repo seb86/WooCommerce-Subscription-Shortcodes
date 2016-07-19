@@ -148,9 +148,9 @@ In order to show details for sign up fee, trial length and trial period of a pro
 ---
 
 ### Filters
-For the moment I thought it would be best to allow the developer to add support for a product type by filtering it in. By default, only `subscription` and `subscription-variation` are supported.
+Developers can add support for a product type by filtering it in. By default, only `subscription` and `subscription-variation` are supported.
 
-> Will push a PR for WooCommerce Subscribe to All the Things mini-extension to add support for all the product types it supports once more stable.
+If you have **WooCommerce Subscribe to All the Things** mini-extension installed then support for all the product types the extension supports is automatically applied.
 
 Below is an example on how you can filter the supported product types yourself should you need to.
 
