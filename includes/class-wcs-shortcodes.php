@@ -893,6 +893,8 @@ class WCSS_Shortcodes {
 			$first_renewal_timestamp = 0;
 		}
 
+		$date_format = ''; // Will be overridden later on.
+
 		if ( $first_renewal_timestamp > 0 ) {
 			if ( $atts['show_time'] ) {
 				if ( 'timestamp' == $atts['format'] ) {
