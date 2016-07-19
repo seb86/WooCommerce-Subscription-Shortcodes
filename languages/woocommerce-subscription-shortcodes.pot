@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WooCommerce Subscription Shortcodes\n"
-"POT-Creation-Date: 2016-07-19 10:11+0200\n"
+"POT-Creation-Date: 2016-07-19 17:41+0200\n"
 "PO-Revision-Date: 2016-06-29 01:18+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -20,63 +20,63 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/class-wcs-shortcodes.php:234
-#: includes/class-wcs-shortcodes.php:347
-#: includes/class-wcs-shortcodes.php:632
+#: includes/class-wcs-shortcodes.php:233
+#: includes/class-wcs-shortcodes.php:351
+#: includes/class-wcs-shortcodes.php:638
 #, php-format
 msgid "%s%s%s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:402
+#: includes/class-wcs-shortcodes.php:406
 #, php-format
 msgid "%s%s %s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:402
+#: includes/class-wcs-shortcodes.php:406
 msgid "discount"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:456
+#: includes/class-wcs-shortcodes.php:460
 #, php-format
 msgid "Per %s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:565
+#: includes/class-wcs-shortcodes.php:569
 #, php-format
 msgid "Every %s"
 msgstr ""
 
-#: includes/class-wcs-shortcodes.php:681
+#: includes/class-wcs-shortcodes.php:690
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-wcs-shortcodes.php:685
+#: includes/class-wcs-shortcodes.php:694
 #, php-format
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-wcs-shortcodes.php:689
+#: includes/class-wcs-shortcodes.php:698
 #, php-format
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-wcs-shortcodes.php:693
+#: includes/class-wcs-shortcodes.php:702
 #, php-format
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-wcs-shortcodes.php:954
+#: includes/class-wcs-shortcodes.php:963
 #, php-format
-msgid "%s with a %s"
+msgid "%s with a %s sign up fee."
 msgstr ""
 
 #: woocommerce-subscription-shortcodes.php:65
