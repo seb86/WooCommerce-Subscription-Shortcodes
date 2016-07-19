@@ -286,6 +286,11 @@ class WCSS_Shortcodes {
 
 			if ( !empty( $scheme ) && is_array( $scheme ) ) {
 
+				// These values will be overridden. They are defined here to acknowledge their existence.
+				$price = '';
+				$regular_price = '';
+				$sale_price = '';
+
 				$prices = array(
 					'price'                      => $scheme['price'],
 					'regular_price'              => $scheme['regular_price'],
@@ -389,6 +394,7 @@ class WCSS_Shortcodes {
 
 		ob_start();
 
+		$override = 'inherit'; // Returns inherit by default. Will be overridden later.
 		$discount = ''; // Returns empty by default.
 
 		// Get Subscription Discount - Only available with the WooCommerce extension "Subscribe to All the Things".
