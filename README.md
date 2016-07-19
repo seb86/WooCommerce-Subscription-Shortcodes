@@ -89,10 +89,11 @@ Shortcode: `[subscription_length]`
 > Example: Returns as default: `Every Month`. Changing the argument to true returns just `month`.
 
 ##### Subscription Sign Up Fee
-Displays the subscription sign-up fee of the subscription product.
+Displays the price tag of the subscription sign-up fee of the subscription product.
 
 Shortcode: `[subscription_sign_up_fee]`
 ###### Default Arguments
+* raw: false
 * before_price: NULL
 * after_price: NULL
 
@@ -136,6 +137,11 @@ Shortcode: `[subscription_first_payment]`
 Displays the price of the initial payment of the subscription including any sign up fee.
 
 Shortcode: `[subscription_initial_payment]`
+
+> Example: If the subscription has a sign up fee then it will return `20,00€ with a 99,00€ sign up fee.` If you have set the total argument to true then you will get a total price `119€`.
+
+###### Default Arguments
+* total: false
 
 ---
 
