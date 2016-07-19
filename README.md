@@ -177,6 +177,12 @@ add_filter( 'wcss_product_types', 'add_sub_shortcode_product_support', 10, 1 );
 
 ---
 
+# Contributing
+
+If you have a patch, or stumbled upon an issue with the shortcodes, you can contribute this back to the code. Please read the [contributor guidelines](https://github.com/seb86/WooCommerce-Subscription-Shortcodes/blob/master/CONTRIBUTING.md) for more information how you can do this.
+
+---
+
 #### License
 This plugin is released under [GNU General Public License v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
 
