@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce Subscription Shortcodes
  * Plugin URI:  https://github.com/seb86/WooCommerce-Subscription-Shortcodes
  * Description: Experimental extension providing a few shortcodes that you can use to add details about the subscription product where you want them to be.
- * Version:     1.0.0 Alpha
+ * Version:     1.0.0 Beta
  * Author:      Sébastien Dumont
  * Author URI:  https://sebastiendumont.com
  *
