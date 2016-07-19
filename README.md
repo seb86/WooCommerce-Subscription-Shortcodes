@@ -59,7 +59,7 @@ Shortcode: `[subscription_price]`
 ##### Subscription Price Meta
 This particular shortcode returns the price meta data. If the subscription is on sale, then the price meta returns both the sale price and regular price striked through. Otherwise it will return just the regular price as normal. However you can force it to return what you want only.
 
-> Example: If you only want to display the sale price, simply enter sale as the meta value in the shortcode.
+> Example: Enter `regular` as the meta value to display just the regular price. Enter `sale` as the meta value to display just the sale price. Enter `active` as the meta value to display just the active price.
 
 Shortcode: `[subscription_price_meta]`
 ###### Default Arguments
@@ -133,9 +133,9 @@ Shortcode: `[subscription_first_payment]`
 > You can also return the first payment in a string format which is more readable. Set the __format__ argument to `string` and it returns `Mon 15th Aug 2016` or `Mon 15th Aug 2016 10:45 AM` if __show_time__ is set to true.
 
 ##### Subscription Initial Payment
-Displays the price of the initial payment of the subscription.
+Displays the price of the initial payment of the subscription including any sign up fee.
 
-Shortcode: `[subscription_first_payment]`
+Shortcode: `[subscription_initial_payment]`
 
 ---
 
