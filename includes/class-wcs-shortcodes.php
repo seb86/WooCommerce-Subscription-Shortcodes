@@ -594,6 +594,7 @@ class WCSS_Shortcodes {
 		$defaults = shortcode_atts( array(
 			'id'           => '',
 			'sku'          => '',
+			'raw'          => false,
 			'before_price' => '',
 			'after_price'  => '',
 		), $atts );
@@ -628,14 +629,18 @@ class WCSS_Shortcodes {
 			}
 		}
 
-		// Convert number into a price tag.
-		if ( is_numeric( $sign_up_fee ) ) {
-			$sign_up_fee = wc_price( $sign_up_fee );
+		if ( ! $atts['raw'] ) {
+			// Convert number into a price tag.
+			if ( is_numeric( $sign_up_fee ) ) {
+				$sign_up_fee = wc_price( $sign_up_fee );
+			}
+
+			$price_html = sprintf( __( '%s%s%s', WCSS::TEXT_DOMAIN ), $atts['before_price'], $sign_up_fee, $atts['after_price'] );
+
+			$sign_up_fee = html_entity_decode( $price_html );
 		}
 
-		$price_html = sprintf( __( '%s%s%s', WCSS::TEXT_DOMAIN ), $atts['before_price'], $sign_up_fee, $atts['after_price'] );
-
-		echo html_entity_decode( $price_html );
+		echo $sign_up_fee;
 
 		return ob_get_clean();
 	} // END get_subscription_sign_up_fee()
@@ -947,15 +952,20 @@ class WCSS_Shortcodes {
 
 		// If there is a free trial then the initial payment is Zero.
 		if ( $trial_length > 0 ) {
-			$initial_payment = self::get_subscription_trial_string( array( 'id' => $product_data->id ) );
+			$initial_payment = 0;
 		}
 
 		// Sign up fee ?
-		$sign_up_fee = self::get_subscription_sign_up_fee( array( 'id' => $product_data->id ) );
+		$sign_up_fee = self::get_subscription_sign_up_fee( array( 'id' => $product_data->id, 'raw' => true ) );
 
 		// Apply the sign up fee if it exists.
 		if ( !empty( $sign_up_fee ) && $sign_up_fee > 0 ) {
-			$initial_payment = sprintf( __( '%s with a %s', WCSS::TEXT_DOMAIN ), $initial_payment, $sign_up_fee );
+			$initial_payment = sprintf( __( '%s with a %s', WCSS::TEXT_DOMAIN ), wc_price( $initial_payment ), wc_price( $sign_up_fee ) );
+		}
+
+		// Convert number into a price tag.
+		if ( is_numeric( $initial_payment ) ) {
+			$initial_payment = wc_price( $initial_payment );
 		}
 
 		echo $initial_payment;
