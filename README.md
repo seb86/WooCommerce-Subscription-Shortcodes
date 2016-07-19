@@ -48,7 +48,7 @@ Shortcode: `[subscription_price]`
 
 > This shortcode still requires some work.
 
-#### Subscription Price Meta
+##### Subscription Price Meta
 This particular shortcode returns the price meta data. If the subscription is on sale, then the price meta returns both the sale price and regular price striked through. Otherwise it will return just the regular price as normal. However you can force it to return what you want only.
 
 > Example: If you only want to display the sale price, simply enter sale as the meta value in the shortcode.
