@@ -1,5 +1,7 @@
 # WooCommerce Subscription Shortcodes
 
+[![Build Status](https://scrutinizer-ci.com/g/seb86/WooCommerce-Subscription-Shortcodes/badges/build.png?b=master)](https://scrutinizer-ci.com/g/seb86/WooCommerce-Subscription-Shortcodes/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/seb86/WooCommerce-Subscription-Shortcodes/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/seb86/WooCommerce-Subscription-Shortcodes/?branch=master)
+
 Experimental extension providing a few shortcodes that you can use to add details about the subscription product where you want them to be. Either to be used in a custom theme for your single product pages or use them to blog about a product you are selling.
 
 These shortcodes are compaitable with [WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) currently in development.
