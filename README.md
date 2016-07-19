@@ -116,6 +116,8 @@ Displays the subscription trial period of the subscription product.
 > Returns blank if no trial is set. Otherwise returns one of the following: `Day`, `Week`, `Month` or `Year`
 
 Shortcode: `[subscription_trial_period]`
+###### Default Arguments
+* raw: false
 
 ##### Subscription First Payment
 This displays the date and/or time of the first payment of the subscription.
