@@ -914,6 +914,8 @@ class WCSS_Shortcodes {
 				}
 			}
 
+			$date_format = apply_filters( 'wcss_first_payment_date_format', $date_format, $atts );
+
 			$first_payment = date( $date_format, $first_renewal_timestamp );
 		} else {
 			$first_payment = '';
