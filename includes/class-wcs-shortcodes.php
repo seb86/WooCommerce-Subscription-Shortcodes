@@ -904,13 +904,13 @@ class WCSS_Shortcodes {
 				if ( 'timestamp' == $atts['format'] ) {
 					$date_format = 'Y-m-d H:i:s';
 				} else if ( 'string' == $atts['format'] ) {
-					$date_format = 'D jS M Y H:i A';
+					$date_format = 'D jS F Y H:i A';
 				}
 			} else {
 				if ( 'timestamp' == $atts['format'] ) {
 					$date_format = 'Y-m-d';
 				} else if ( 'string' == $atts['format'] ) {
-					$date_format = 'D jS M Y';
+					$date_format = 'D jS F Y';
 				}
 			}
 
