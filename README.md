@@ -164,6 +164,8 @@ In order to show details for sign up fee, trial length and trial period of a pro
 ---
 
 ### Filters
+
+##### Product Support
 Developers can add support for a product type by filtering it in. By default, only `subscription` and `subscription-variation` are supported.
 
 If you have **WooCommerce Subscribe to All the Things** mini-extension installed then support for all the product types the extension supports is automatically applied.
@@ -183,6 +185,35 @@ function add_sub_shortcode_product_support( $product_types ) {
 	return $product_types;
 }
 add_filter( 'wcss_product_types', 'add_sub_shortcode_product_support', 10, 1 );
+```
+
+##### Date Format
+You can filter the date format for `[subscription_first_payment]` to how you wish to display it such as changing the order of the __day__, __month__ and __year__.
+
+Below is an example on how you can filter the date format for UK.
+
+```
+/**
+ * Filters the date format for UK display for the first payment subscription shortcode.
+ *
+ * @param  string $date_format
+ * @param  array  $atts
+ * @return string
+ */
+function wcss_first_payment_date_format_uk( $date_format, $atts ) {
+	if ( $atts['show_time'] ) {
+		if ( 'timestamp' == $atts['format'] ) {
+			$date_format = 'd-m-Y H:i:s';
+		}
+	} else {
+		if ( 'timestamp' == $atts['format'] ) {
+			$date_format = 'd-m-Y';
+		}
+	}
+
+	return $date_format;
+} // END first_payment_date_format()
+add_filter( 'wcss_first_payment_date_format', wcss_first_payment_date_format_uk, 10, 2 );
 ```
 
 ---
