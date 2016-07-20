@@ -64,11 +64,9 @@ class WCSS_Shortcodes {
 	 * @return bool
 	 */
 	public static function force_is_subscription( $is_subscription, $product_id, $product ) {
-		/*if ( is_object( $product ) ) {
-			$product = $product;
-		} elseif ( is_numeric( $product_id ) ) {
+		if ( ! is_object( $product ) ) {
 			$product = wc_get_product( $product_id );
-		}*/
+		}
 
 		if ( in_array( $product->product_type, self::get_supported_product_types() ) ) {
 			if ( class_exists( 'WCS_ATT_Schemes' ) && WCS_ATT_Schemes::get_product_subscription_schemes( $product ) ) {
@@ -873,14 +871,14 @@ class WCSS_Shortcodes {
 
 		$from_date = $atts['from_date'];
 
-		if ( $billing_interval != $billing_length || $trial_length > 0 ) {
+		if ( $billing_interval !== $billing_length || $trial_length > 0 ) {
 			if ( empty( $from_date ) ) {
 				$from_date = gmdate( 'Y-m-d H:i:s' );
 			}
 
-			// If the subscription has a free trial period, the first renewal is the same as the expiration of the free trial
+			// If the subscription has a free trial period, the first renewal is the same as the expiration of the free trial.
 			if ( $trial_length > 0 ) {
-				$first_renewal_timestamp = strtotime( WC_Subscriptions_Product::get_trial_expiration_date( $product_data->id, $from_date ) );
+				$first_renewal_timestamp = strtotime( self::get_trial_expiration_date( $product_data->id, $from_date ) );
 			} else {
 				$from_timestamp = strtotime( $from_date );
 				$billing_period = self::get_subscription_period( array( 'id' => $product_data->id, 'raw' => true ) );
@@ -1040,6 +1038,44 @@ class WCSS_Shortcodes {
 
 		return $price;
 	} // END clean_wc_price
+
+	/**
+	 * Takes a subscription product's ID and returns the date on which the subscription trial will expire,
+	 * based on the subscription's trial length and calculated from either the $from_date if specified,
+	 * or the current date/time.
+	 *
+	 * @param int $product_id The product/post ID of the subscription
+	 * @param mixed $from_date A MySQL formatted date/time string from which to calculate the expiration date (in UTC timezone), or empty (default), which will use today's date/time (in UTC timezone).
+	 */
+	public static function get_trial_expiration_date( $product_id, $from_date = '' ) {
+		$trial_expiration_date = WC_Subscriptions_Product::get_trial_expiration_date( $product_id, $from_date );
+
+		// If returned empty then try alternative.
+		if ( empty( $trial_expiration_date ) ) {
+
+			$trial_period = self::get_subscription_trial_period( array( 'id' => $product_id, 'raw' => true ) );
+			$trial_length = self::get_subscription_trial_length( array( 'id' => $product_id ) );
+
+			if ( $trial_length > 0 ) {
+
+				if ( empty( $from_date ) ) {
+					$from_date = gmdate( 'Y-m-d H:i:s' );
+				}
+
+				if ( 'month' == $trial_period ) {
+					$trial_expiration_date = date( 'Y-m-d H:i:s', wcs_add_months( strtotime( $from_date ), $trial_length ) );
+				} else { // Safe to just add the billing periods
+					$trial_expiration_date = date( 'Y-m-d H:i:s', strtotime( "+ {$trial_length} {$trial_period}s", strtotime( $from_date ) ) );
+				}
+
+			} else {
+				$trial_expiration_date = 0;
+			}
+
+		}
+
+		return $trial_expiration_date;
+	} // END get_trial_expiration_date()
 
 } // END WCSS_Shortcodes
 
