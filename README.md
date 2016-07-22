@@ -4,7 +4,7 @@
 
 Experimental extension providing a few shortcodes that you can use to add details about the subscription product where you want them to be. Either to be used in a custom theme for your single product pages or use them to blog about a product you are selling.
 
-These shortcodes are compaitable with [WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) currently in development.
+These shortcodes are compaitable with [WooCommerce Subscribe All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) currently in development.
 
 ---
 
@@ -152,14 +152,14 @@ Displays the subscription discount of the subscription product based on the regu
 
 > Example: `65% discount`
 
-> Please Note: This shortcode only works for products using the mini-extension "[WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things)" that have a discount applied.
+> Please Note: This shortcode only works for products using the mini-extension "[WooCommerce Subscribe All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things)" that have a discount applied.
 
 Shortcode: `[subscription_discount]`
 
 This shortcode string ending can also be filtered using this filter. `wcs_shortcodes_sub_discount_string`.
 
 ### Other Notes
-In order to show details for sign up fee, trial length and trial period of a product using [WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) you will need to also have [WooCommerce Subscribe to All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on) installed.
+In order to show details for sign up fee, trial length and trial period of a product using [WooCommerce Subscribe All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) you will need to also have [WooCommerce Subscribe All the Things - Sign-up and Trial Add-on](https://github.com/seb86/woocommerce-subscribe-to-all-the-things-signup-trial-add-on) installed.
 
 ---
 
@@ -168,7 +168,7 @@ In order to show details for sign up fee, trial length and trial period of a pro
 ##### Product Support
 Developers can add support for a product type by filtering it in. By default, only `subscription` and `subscription-variation` are supported.
 
-If you have **WooCommerce Subscribe to All the Things** mini-extension installed then support for all the product types the extension supports is automatically applied.
+If you have **WooCommerce Subscribe All the Things** mini-extension installed then support for all the product types the extension supports is automatically applied.
 
 Below is an example on how you can filter the supported product types yourself should you need to.
 
@@ -220,7 +220,7 @@ add_filter( 'wcss_first_payment_date_format', wcss_first_payment_date_format_uk,
 
 # Contributing
 
-If you have a patch, or stumbled upon an issue with the shortcodes, you can contribute this back to the code. Please read the [contributor guidelines](https://github.com/seb86/WooCommerce-Subscription-Shortcodes/blob/master/CONTRIBUTING.md) for more information how you can do this.
+If you have a patch, or stumbled upon an issue with the shortcodes, you can contribute this back to the code. Please read the [contributor guidelines](https://github.com/seb86/WooCommerce-Subscription-Shortcodes/blob/master/CONTRIBUTING.md) for more information on how you can do this.
 
 ---
 
@@ -228,7 +228,7 @@ If you have a patch, or stumbled upon an issue with the shortcodes, you can cont
 This plugin is released under [GNU General Public License v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
 
 #### Credits
-[Prospress](http://prospress.com/) are the developers of the [WooCommerce Subscriptions](https://woocommerce.com/products/woocommerce-subscriptions/) extension and [WooCommerce Subscribe to All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) mini-extension.
+[Prospress](http://prospress.com/) are the developers of the [WooCommerce Subscriptions](https://woocommerce.com/products/woocommerce-subscriptions/) extension and [WooCommerce Subscribe All the Things](https://github.com/Prospress/woocommerce-subscribe-all-the-things) mini-extension.
 
 This extension is developed and maintained by [me](https://sebastiendumont.com).
 
