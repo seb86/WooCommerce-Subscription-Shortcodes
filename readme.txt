@@ -47,6 +47,7 @@ The WooCommerce logo and the WooCommerce name are trademarks of Automattic Inc. 
 == Installation ==
 
 To install the Subscription Shortcodes:
+
 1. Download the latest version of the plugin here
 2. Go to Plugins > Add New > Upload administration screen on your WordPress site
 3. Select the ZIP file you just downloaded
