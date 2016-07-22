@@ -31,9 +31,6 @@ class WCSS_Shortcodes {
 			add_shortcode( apply_filters( "{$shortcode}_shortcode_tag", $shortcode ), array( __CLASS__, $function ) );
 		} // END foreach()
 
-		// Adds support for product types that have subscription scheme options.
-		add_filter( 'woocommerce_is_subscription', array( __CLASS__, 'force_is_subscription' ), 10, 3 );
-
 		// Adds alternative subscription price from the WooCommerce extension "Subscribe to All the Things" and returns the lowest scheme price.
 		add_action( 'woocommerce_subscriptions_shortcode_get_price', array( __CLASS__, 'get_satt_lowest_price' ), 10, 1 );
 
@@ -54,28 +51,6 @@ class WCSS_Shortcodes {
 			'subscription-variation', 
 		) );
 	} // END get_supported_product_types()
-
-	/**
-	 * Adds support for product types that have subscription scheme options.
-	 *
-	 * @param  bool   $is_subscription
-	 * @param  int    $product_id
-	 * @param  object $product
-	 * @return bool
-	 */
-	public static function force_is_subscription( $is_subscription, $product_id, $product ) {
-		if ( ! is_object( $product ) ) {
-			$product = wc_get_product( $product_id );
-		}
-
-		if ( in_array( $product->product_type, self::get_supported_product_types() ) ) {
-			if ( class_exists( 'WCS_ATT_Schemes' ) && WCS_ATT_Schemes::get_product_subscription_schemes( $product ) ) {
-				$is_subscription = true;
-			}
-		}
-
-		return $is_subscription;
-	} // END force_is_subscription()
 
 	/**
 	 * Returns the subscription price string.
